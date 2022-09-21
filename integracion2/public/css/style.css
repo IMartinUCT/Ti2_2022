@@ -48,3 +48,9 @@ ul#menu li{
     padding: 0.1em;
     background-color: rgb(231, 71, 71);
 }
+
+footer{
+    background-color: azure;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
