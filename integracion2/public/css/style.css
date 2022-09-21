@@ -1,0 +1,50 @@
+.hide{
+    display:none;
+}
+
+button.user-menu{
+    border: none;
+    background: none;
+}
+
+div.container{
+    margin-left: 93%;
+    width: 6em;
+}
+
+div.box{
+    height: 0.5em;
+    width: 6em;
+    margin-right: 4em;
+}
+
+img.user-avatar{
+    margin-left: 0.2em;
+    margin-top: 1.4em;
+    width: 4.7em;
+    height: 4.7em;
+}
+
+a#logo-uct{
+    position: absolute;
+}
+
+a img{
+    margin-left: 1.6em;
+    margin-top: 1.4em;
+    height: 3em;
+}
+
+ul#menu {
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    padding: 0.1em;
+}
+
+ul#menu li{
+    display: block;
+    text-align: center;
+    padding: 0.1em;
+    background-color: rgb(231, 71, 71);
+}
