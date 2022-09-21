@@ -27,4 +27,7 @@ Route::get('/documents', function () {
 Route::get('/history', function () {
     return view('historial');
 });
+Route::get("/gastos", function () { 
+    return view('gastos');
+});
 

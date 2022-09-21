@@ -1,10 +1,11 @@
 <DOCTYPE html> 
-<html lang="en" theme='default'>
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel='stylesheet' type='text/css' href="{{ URL::asset('css/style.css'); }}">
+        
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -14,61 +15,76 @@
 
     <body>
         @include('header')
-        <br>
-        <br>
-        <br>
-      <?php 
-            $serverName = "PATO\SQLEXPRESS";
-            $connectinfo = array("Database" => "Integracion2");
-            $conn= sqlsrv_connect($serverName,$connectinfo);
 
-            if($conn){
-                echo "Connection successful.";
-            }
-            else{
-                echo "Connection failed";
-                die(print_r(sqlsrv_errors(),true));
-            
-            }
-        ?>
-
-        <table class="table">
+    <table class="table">
         <thead class="thead-dark">
             <tr>
-            <th scope="col">Id_Gastos</th>
-            <th scope="col">Vehiculos</th>
-            <th scope="col">Combustible</th>
-            <th scope="col">Saldo</th>
-            <th scope="col">Capital</th>
+            <th scope="col">ID</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
             </tr>
         </thead>
         <tbody>
         
             <tr>
-            <th scope="row"></th>
+            <th scope="row">{{$Gast->Vehiculos}}</th>
             <td>Mark</td>
             <td>Otto</td>
             <td>@mdo</td>
-            <td>@twitter</td>
             </tr>
             <tr>
             <th scope="row">2</th>
             <td>Jacob</td>
             <td>Thornton</td>
             <td>@fat</td>
-            <td>@twitter</td>
             </tr>
             <tr>
             <th scope="row">3</th>
             <td>Larry</td>
             <td>the Bird</td>
             <td>@twitter</td>
+            </tr>
+          
+        </tbody>
+        </table>
+
+        <table class="table">
+        <thead class="thead-light">
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+            </tr>
+            <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+            </tr>
+            <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
             <td>@twitter</td>
             </tr>
-            </tr>
-        
         </tbody>
     </table>
+
+
+
+
+
+
     </body>
     <footer>@include('footer')</footer>
 </html>
