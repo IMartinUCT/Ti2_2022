@@ -18,7 +18,7 @@
         <br>
         <br>
       <?php 
-            $serverName = "PATO\SQLEXPRESS";
+            $serverName = "MAYBEE\SQLEXPRESS";
             $connectinfo = array("Database" => "Integracion2");
             $conn= sqlsrv_connect($serverName,$connectinfo);
 
@@ -35,22 +35,23 @@
         <table class="table">
         <thead class="thead-dark">
             <tr>
-            <th scope="col">Id_Gastos</th>
-            <th scope="col">Vehiculos</th>
-            <th scope="col">Combustible</th>
-            <th scope="col">Saldo</th>
-            <th scope="col">Capital</th>
+                <th scope="col">Id_Gastos</th>
+                <th scope="col">Vehiculos</th>
+                <th scope="col">Combustible</th>
+                <th scope="col">Sueldo</th>
+                <th scope="col">Capital</th>
             </tr>
         </thead>
         <tbody>
-        
+            @foreach($gastos as $gasto)
             <tr>
-            <th scope="row"></th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@twitter</td>
+                <th scope="row">{{$gasto['Id_Gastos']}}</th>
+                <td>{{$gasto['Vehiculos']}}</td>
+                <td>{{$gasto['Combustible']}}</td>
+                <td>{{$gasto['Sueldo']}}</td>
+                <td>{{$gasto['Capital']}}</td>
             </tr>
+            @endforeach
             <tr>
             <th scope="row">2</th>
             <td>Jacob</td>

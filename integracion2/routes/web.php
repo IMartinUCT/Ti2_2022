@@ -30,4 +30,6 @@ Route::get('/history', function () {
 Route::get("/gastos", function () { 
     return view('gastos');
 });
+Route::get('/', 'App\Http\Controllers\GastoController@getGastos');
+// Route::get('list','App\Http\Controllers\GastoController@list');
 
