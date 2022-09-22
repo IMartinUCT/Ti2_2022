@@ -14,6 +14,7 @@
 
     <body>
         @include('header')
+<<<<<<< Updated upstream
         <br>
         <br>
         <br>
@@ -70,6 +71,8 @@
         
         </tbody>
     </table>
+=======
+>>>>>>> Stashed changes
     </body>
     <footer>@include('footer')</footer>
 </html>
