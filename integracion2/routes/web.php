@@ -27,12 +27,9 @@ Route::get('/documents', function () {
 Route::get('/history', function () {
     return view('historial');
 });
-<<<<<<< Updated upstream
 Route::get("/gastos", function () { 
     return view('gastos');
 });
 Route::get('/', 'App\Http\Controllers\GastoController@getGastos');
 // Route::get('list','App\Http\Controllers\GastoController@list');
-=======
->>>>>>> Stashed changes
 
