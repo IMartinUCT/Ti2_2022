@@ -17,21 +17,6 @@
         <br>
         <br>
         <br>
-      <?php 
-            $serverName = "MAYBEE\SQLEXPRESS";
-            $connectinfo = array("Database" => "Integracion2");
-            $conn= sqlsrv_connect($serverName,$connectinfo);
-
-            if($conn){
-                echo "Connection successful.";
-            }
-            else{
-                echo "Connection failed";
-                die(print_r(sqlsrv_errors(),true));
-            
-            }
-        ?>
-
         <table class="table">
         <thead class="thead-dark">
             <tr>
@@ -52,22 +37,6 @@
                 <td>{{$gasto['Capital']}}</td>
             </tr>
             @endforeach
-            <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td>@twitter</td>
-            </tr>
-            <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-            <td>@twitter</td>
-            </tr>
-            </tr>
-        
         </tbody>
     </table>
     </body>

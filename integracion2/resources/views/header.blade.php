@@ -11,6 +11,7 @@
 			<div class="logo"> <img src="{{ asset('photos/logo-uct.png') }}"></div>
 			
 			<nav>
+				<a href="<?php echo url('/') ?>">Incio</a>
 				<a href="<?php echo url('/login') ?>">Login</a>
 				<a href="<?php echo url('/register') ?>">Registro</a>
 				<a href="<?php echo url('/documents') ?>">Documentos</a>
