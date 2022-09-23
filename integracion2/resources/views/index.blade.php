@@ -9,7 +9,8 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
     </head>
 
     <body>
@@ -17,7 +18,7 @@
         <br>
         <br>
         <br>
-        <table class="table">
+        <table id= "tbldata" class="table">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">Id_Gastos</th>
@@ -38,7 +39,21 @@
             </tr>
             @endforeach
         </tbody>
-    </table>
+        </table>
+        <div class="dropdown">
+        <button id = "pichi" >Exportar a</button>
+        <div>
+        <a onclick="exportarAexcel('tbldata')" class="btn btn-info btn-lg">
+          <span class="glyphicon glyphicon-export"></span>EXCEL
+        </a>
+        <a href="#" id= "xx" class="btn btn-info btn-lg">
+          <span class="glyphicon glyphicon-export"></span>CSV
+        </a>
+        
+    </div>
+    
+    </div>
+
     </body>
     <footer>@include('footer')</footer>
 </html>
