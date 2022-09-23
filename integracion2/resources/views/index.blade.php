@@ -18,8 +18,9 @@
         <br>
         <br>
         <br>
-        <table id= "tbldata" class="table">
-        <thead class="thead-dark">
+        <div class="table-wrapper">
+        <table class="fl-table" id = "tbldata">
+        <thead>
             <tr>
                 <th scope="col">Id_Gastos</th>
                 <th scope="col">Vehiculos</th>
@@ -40,18 +41,16 @@
             @endforeach
         </tbody>
         </table>
-        <div class="dropdown">
-        <button id = "pichi" >Exportar a</button>
-        <div>
-        <a onclick="exportarAexcel('tbldata')" class="btn btn-info btn-lg">
-          <span class="glyphicon glyphicon-export"></span>EXCEL
-        </a>
-        <a href="#" id= "xx" class="btn btn-info btn-lg">
-          <span class="glyphicon glyphicon-export"></span>CSV
-        </a>
-        
-    </div>
-    
+        </div>
+        <div class = "containerboton">
+            <a onclick="exportarAexcel('tbldata')" class="btn btn-info btn-lg">
+            <span class="glyphicon glyphicon-export"></span>EXCEL
+            </a>
+            <a href="#" id= "xx" class="btn btn-info btn-lg">
+            <span class="glyphicon glyphicon-export"></span>CSV
+            </a>
+            
+        </div>
     </div>
 
     </body>

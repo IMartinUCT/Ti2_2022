@@ -19,7 +19,7 @@
     <div class="col-12 col-md-4 offset-md-4">
         <div class= "card"> 
             <div class= "card-body">
-                <h2>Auntenticacion</h2>
+                <h2>Autenticacion</h2>
                 <hr>
                 <form action="" class="" method="post" enctype="multipart/form-data">
                 <div class="form-group">
