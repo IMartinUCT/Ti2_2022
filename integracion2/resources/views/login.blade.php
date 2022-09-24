@@ -5,7 +5,8 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel='stylesheet' type='text/css' href="{{ URL::asset('css/style.css'); }}">        
+        <link rel='stylesheet' type='text/css' href="{{ URL::asset('css/style.css'); }}"> 
+        <link rel="stylesheet" media="all" href="css/app.css">       
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -15,28 +16,18 @@
     <header>@include('header')</header>
     
     <body>
-        <br><br>
-    <div class="col-12 col-md-4 offset-md-4">
-        <div class= "card"> 
-            <div class= "card-body">
-                <h2>Autenticacion</h2>
-                <hr>
-                <form action="" class="" method="post" enctype="multipart/form-data">
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Correo Electronico</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese correo">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Contraseña</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
-                </div>
-                <button type="submit" class="btn btn-primary">Ingresar</button>
-                <a class="btn btn-secondary" href=<?php echo url('/register') ?>>Registrar una cuenta</a>
-                </form>
-
-            </div> 
+    <div class="page" style="background: url(photos/30.jpg) no-repeat 50% 50%/cover;">
+      <form class="form" action>
+        <div class="form__container">
+          <div class="logo"><img class="logo__pic" src="photos/Logo_UCT.webp" width="45"></div>
+          <div class="fieldset">
+            <div class="field"><input class="input" type="email" placeholder="Correo Electronico" required></div>
+            <div class="field"><input class="input" type="password" placeholder="Contraseña" required></div>
+          </div><button class="button1">Ingresar</button>
+          <div class="text">Se te olvido tu contraseña? <a class= "botonreg" href="#">Recuperar Clave</a></div>
         </div>
+        <div class="form__footer">No tienes cuenta? <a class= "botonreg" href="<?php echo url('/register') ?>">Registrarse!</a></div>
+      </form>
     </div>
-    </body>
-    <footer>@include('footer')</footer>
+  </body>
 </html>
