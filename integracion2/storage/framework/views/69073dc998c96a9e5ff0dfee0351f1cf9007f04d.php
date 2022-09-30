@@ -9,7 +9,8 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
     </head>
 
     <body>
@@ -17,14 +18,16 @@
         <br>
         <br>
         <br>
-        <table class="table">
-        <thead class="thead-dark">
+        <div class="table-wrapper">
+        <table class="fl-table" id = "tbldata">
+        <thead>
             <tr>
                 <th scope="col">Id_Gastos</th>
                 <th scope="col">Vehiculos</th>
                 <th scope="col">Combustible</th>
                 <th scope="col">Sueldo</th>
                 <th scope="col">Capital</th>
+                <th scope="col">Departamento</th>
             </tr>
         </thead>
         <tbody>
@@ -35,10 +38,23 @@
                 <td><?php echo e($gasto['Combustible']); ?></td>
                 <td><?php echo e($gasto['Sueldo']); ?></td>
                 <td><?php echo e($gasto['Capital']); ?></td>
+                <td><?php echo e($gasto -> departamentos -> tipo_departamento); ?></td>
             </tr>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </tbody>
-    </table>
+        </table>
+        </div>
+        <div class = "containerboton">
+            <a onclick="exportarAexcel('tbldata')" class="btn btn-info btn-lg">
+            <span class="glyphicon glyphicon-export"></span>EXCEL
+            </a>
+            <a href="#" id= "xx" class="btn btn-info btn-lg">
+            <span class="glyphicon glyphicon-export"></span>CSV
+            </a>
+            
+        </div>
+    </div>
+
     </body>
     <footer><?php echo $__env->make('footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?></footer>
 </html>

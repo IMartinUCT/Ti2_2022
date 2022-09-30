@@ -11,10 +11,10 @@
 			<div class="logo"> <img src="<?php echo e(asset('photos/logo-uct.png')); ?>"></div>
 			
 			<nav>
-				<a href="<?php echo url('/') ?>">Incio</a>
+				<a href="<?php echo url('/') ?>">Inicio</a>
 				<a href="<?php echo url('/login') ?>">Login</a>
 				<a href="<?php echo url('/register') ?>">Registro</a>
-				<a href="<?php echo url('/documents') ?>">Documentos</a>
+				<a href="<?php echo url('/documentos') ?>">Documentos</a>
 				<a href="<?php echo url('/history') ?>">Historial</a>
 			</nav>
 		</div>

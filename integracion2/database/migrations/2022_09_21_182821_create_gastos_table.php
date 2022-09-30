@@ -14,12 +14,16 @@ class CreateGastosTable extends Migration
     public function up()
     {
         Schema::create('gastos', function (Blueprint $table) {
-            $table->id("Id_Gastos");
+            $table->id();
             $table->integer("Vehiculos");
             $table->integer("Combustible");
             $table->integer("Sueldo");
             $table->integer("Capital");
-            $table->timestamps();
+
+
+            $table->foreignId("id_departamento")->references("id")
+                ->on("departamentos");
+
         });
     }
 

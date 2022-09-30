@@ -12,7 +12,7 @@
       <li class="nav-item"><a href="<?php echo url('/') ?>" class="nav-link px-2 text-muted">Inicio</a></li>
       <li class="nav-item"><a href="<?php echo url('/login') ?>" class="nav-link px-2 text-muted">Login</a></li>
       <li class="nav-item"><a href="<?php echo url('/register') ?>" class="nav-link px-2 text-muted">Registro</a></li>
-      <li class="nav-item"><a href="<?php echo url('/documents') ?>" class="nav-link px-2 text-muted">Documentos</a></li>
+      <li class="nav-item"><a href="<?php echo url('/documentos') ?>" class="nav-link px-2 text-muted">Documentos</a></li>
       <li class="nav-item"><a href="<?php echo url('/history') ?>" class="nav-link px-2 text-muted">Historial</a></li>
     </ul>
   </footer>

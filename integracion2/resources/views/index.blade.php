@@ -27,6 +27,7 @@
                 <th scope="col">Combustible</th>
                 <th scope="col">Sueldo</th>
                 <th scope="col">Capital</th>
+                <th scope="col">Departamento</th>
             </tr>
         </thead>
         <tbody>
@@ -37,6 +38,7 @@
                 <td>{{$gasto['Combustible']}}</td>
                 <td>{{$gasto['Sueldo']}}</td>
                 <td>{{$gasto['Capital']}}</td>
+                <td>{{$gasto -> departamentos -> tipo_departamento}}</td>
             </tr>
             @endforeach
         </tbody>
