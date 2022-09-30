@@ -33,7 +33,7 @@
         <tbody>
             @foreach($gastos as $gasto)
             <tr>
-                <th scope="row">{{$gasto['Id_Gastos']}}</th>
+                <th scope="row">{{$gasto['id']}}</th>
                 <td>{{$gasto['Vehiculos']}}</td>
                 <td>{{$gasto['Combustible']}}</td>
                 <td>{{$gasto['Sueldo']}}</td>

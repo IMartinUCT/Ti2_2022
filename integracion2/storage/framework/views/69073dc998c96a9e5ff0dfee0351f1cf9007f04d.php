@@ -33,7 +33,7 @@
         <tbody>
             <?php $__currentLoopData = $gastos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $gasto): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <tr>
-                <th scope="row"><?php echo e($gasto['Id_Gastos']); ?></th>
+                <th scope="row"><?php echo e($gasto['id']); ?></th>
                 <td><?php echo e($gasto['Vehiculos']); ?></td>
                 <td><?php echo e($gasto['Combustible']); ?></td>
                 <td><?php echo e($gasto['Sueldo']); ?></td>

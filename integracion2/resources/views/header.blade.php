@@ -9,14 +9,23 @@
     <header>
 		<div class="wrapper">
 			<div class="logo"> <img src="{{ asset('photos/logo-uct.png') }}"></div>
-			
-			<nav>
-				<a href="<?php echo url('/') ?>">Inicio</a>
-				<a href="<?php echo url('/login') ?>">Login</a>
-				<a href="<?php echo url('/register') ?>">Registro</a>
-				<a href="<?php echo url('/documentos') ?>">Documentos</a>
-				<a href="<?php echo url('/history') ?>">Historial</a>
-			</nav>
+			@if(auth()->check())		
+				<nav>
+					<a href="<?php echo url("#") ?>">Bienvenido <b> {{auth()->user()-> name}} </b></a>
+					<a href="<?php echo url('/') ?>">Inicio</a>
+					<a href="<?php echo url('/documentos') ?>">Documentos</a>
+					<a href="{{route('login.destroy') }}" class="p-3 mb-2 bg-danger text-white">Desconectarse</a>
+
+				</nav>
+			@else			
+				<nav>
+					<a href="<?php echo url('/') ?>">Inicio</a>
+					<a href="<?php echo url('/login') ?>">Login</a>
+					<a href="<?php echo url('/register') ?>">Registro</a>
+				</nav>
+			@endif
+
+
 		</div>
 	</header>
 </html>
