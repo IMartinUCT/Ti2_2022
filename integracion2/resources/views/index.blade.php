@@ -14,47 +14,15 @@
     </head>
 
     <body>
-        @include('header')
-        <br>
-        <br>
-        <br>
+        <header>@include('header')</header>
         <div class="table-wrapper">
-        <table class="fl-table" id = "tbldata">
-        <thead>
-            <tr>
-                <th scope="col">Id_Gastos</th>
-                <th scope="col">Vehiculos</th>
-                <th scope="col">Combustible</th>
-                <th scope="col">Sueldo</th>
-                <th scope="col">Capital</th>
-                <th scope="col">Departamento</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($gastos as $gasto)
-            <tr>
-                <th scope="row">{{$gasto['id']}}</th>
-                <td>{{$gasto['Vehiculos']}}</td>
-                <td>{{$gasto['Combustible']}}</td>
-                <td>{{$gasto['Sueldo']}}</td>
-                <td>{{$gasto['Capital']}}</td>
-                <td>{{$gasto -> departamentos -> tipo_departamento}}</td>
-            </tr>
-            @endforeach
-        </tbody>
-        </table>
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Seleccione la tabla</option>
+                @foreach($table_names as $table)
+                <option>{{$table}}</option>
+                @endforeach
+            </select>
         </div>
-        <div class = "containerboton">
-            <a onclick="exportarAexcel('tbldata')" class="btn btn-info btn-lg">
-            <span class="glyphicon glyphicon-export"></span>EXCEL
-            </a>
-            <a href="#" id= "xx" class="btn btn-info btn-lg">
-            <span class="glyphicon glyphicon-export"></span>CSV
-            </a>
-            
-        </div>
-    </div>
-
     </body>
     <footer>@include('footer')</footer>
 </html>

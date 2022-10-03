@@ -10,7 +10,7 @@ class GastoController extends Controller
 {
     public function index() {
         $gastos = Gasto::all();
-        return view('index',compact('gastos'));
+        return view('documentos',compact('gastos'));
     }
 
     function list(){

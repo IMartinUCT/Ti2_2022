@@ -28,6 +28,5 @@ Route::get('/history', function () {
 Route::get("/gastos", function () { 
     return view('gastos');
 });
-Route::get('/', 'App\Http\Controllers\GastoController@index');
-// Route::get('list','App\Http\Controllers\GastoController@list');
-
+Route::get('/documentos', 'App\Http\Controllers\GastoController@index');
+Route::get('/', 'App\Http\Controllers\DatoController@index');
