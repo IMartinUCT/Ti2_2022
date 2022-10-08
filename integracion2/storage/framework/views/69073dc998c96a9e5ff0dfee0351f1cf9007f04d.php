@@ -14,47 +14,15 @@
     </head>
 
     <body>
-        <?php echo $__env->make('header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-        <br>
-        <br>
-        <br>
+        <header><?php echo $__env->make('header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?></header>
         <div class="table-wrapper">
-        <table class="fl-table" id = "tbldata">
-        <thead>
-            <tr>
-                <th scope="col">Id_Gastos</th>
-                <th scope="col">Vehiculos</th>
-                <th scope="col">Combustible</th>
-                <th scope="col">Sueldo</th>
-                <th scope="col">Capital</th>
-                <th scope="col">Departamento</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php $__currentLoopData = $gastos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $gasto): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <tr>
-                <th scope="row"><?php echo e($gasto['id']); ?></th>
-                <td><?php echo e($gasto['Vehiculos']); ?></td>
-                <td><?php echo e($gasto['Combustible']); ?></td>
-                <td><?php echo e($gasto['Sueldo']); ?></td>
-                <td><?php echo e($gasto['Capital']); ?></td>
-                <td><?php echo e($gasto -> departamentos -> tipo_departamento); ?></td>
-            </tr>
-            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-        </tbody>
-        </table>
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Seleccione la tabla</option>
+                <?php $__currentLoopData = $table_names; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $table): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <option><?php echo e($table); ?></option>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            </select>
         </div>
-        <div class = "containerboton">
-            <a onclick="exportarAexcel('tbldata')" class="btn btn-info btn-lg">
-            <span class="glyphicon glyphicon-export"></span>EXCEL
-            </a>
-            <a href="#" id= "xx" class="btn btn-info btn-lg">
-            <span class="glyphicon glyphicon-export"></span>CSV
-            </a>
-            
-        </div>
-    </div>
-
     </body>
     <footer><?php echo $__env->make('footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?></footer>
 </html>

@@ -24,8 +24,6 @@
 					<a href="<?php echo url('/register') ?>">Registro</a>
 				</nav>
 			@endif
-
-
 		</div>
 	</header>
 </html>

@@ -28,7 +28,7 @@
             <div class="field"><input class="input" type="text" placeholder="Rut de Jefe Departamento" required></div>
             <div class="field"><input class="input" type="password" placeholder="Contraseña" required></div>
           </div><button class="button1">Registrarse</button>
-          <div class="text">Al crear una cuenta, aceptas a nuestros <a class= "botonreg" href="#">Terminos</a> y <a class= "botonreg" href="#">Privacidad de Seguridad</a>.</div>
+          <div class="text">Al crear una cuenta, aceptas a nuestros <a>Terminos</a> y <a class= "botonreg" href="#">Privacidad de Seguridad</a>.</div>
         </div>
         <div class="form__footer">Ya tienes cuenta? <a class= "botonreg" href="<?php echo url('/login') ?>">Ingresar</a></div>
       </form>

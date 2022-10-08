@@ -8,12 +8,18 @@
     <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none" >
       <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
     </a>
-    <ul id="lala" class="nav col-md-4 justify-content-end">
-      <li class="nav-item"><a href="<?php echo url('/') ?>" class="nav-link px-2 text-muted">Inicio</a></li>
-      <li class="nav-item"><a href="<?php echo url('/login') ?>" class="nav-link px-2 text-muted">Login</a></li>
-      <li class="nav-item"><a href="<?php echo url('/register') ?>" class="nav-link px-2 text-muted">Registro</a></li>
-      <li class="nav-item"><a href="<?php echo url('/documentos') ?>" class="nav-link px-2 text-muted">Documentos</a></li>
-      <li class="nav-item"><a href="<?php echo url('/history') ?>" class="nav-link px-2 text-muted">Historial</a></li>
-    </ul>
+    @if(auth()->check())
+      <ul id="lala" class="nav col-md-4 justify-content-end">
+        <li class="nav-item"><a href="<?php echo url('/') ?>" class="nav-link px-2 text-muted">Inicio</a></li>
+        <li class="nav-item"><a href="<?php echo url('/documentos') ?>" class="nav-link px-2 text-muted">Documentos</a></li>
+      </ul>
+    @else
+      <ul id="lala" class="nav col-md-4 justify-content-end">
+        <li class="nav-item"><a href="<?php echo url('/') ?>" class="nav-link px-2 text-muted">Inicio</a></li>
+        <li class="nav-item"><a href="<?php echo url('/login') ?>" class="nav-link px-2 text-muted">Login</a></li>
+        <li class="nav-item"><a href="<?php echo url('/register') ?>" class="nav-link px-2 text-muted">Registro</a></li>
+      </ul>
+    @endif	
+			
   </footer>
 </div>
