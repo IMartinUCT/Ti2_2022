@@ -19,9 +19,29 @@
             <select class="form-select" aria-label="Default select example">
                 <option selected>Seleccione la tabla</option>
                 @foreach($table_names as $table)
-                <option>{{$table}}</option>
+                <option value="{{$table}}">{{$table}}</option>
                 @endforeach
             </select>
+        </div>
+        <div>
+        <table class="fl-table" id="tbldata">
+        <thead>
+            <tr>
+            @foreach($columnas as $col)
+                <th scope="col">{{$col}}</th>
+            @endforeach
+            </tr>
+        </thead>
+        <tbody>
+        @foreach($filas as $row)
+            <tr>
+                @foreach($row as $data)
+                    <td>{{$data}}</td>
+                @endforeach
+            </tr>
+        @endforeach
+        </tbody>
+        </table>
         </div>
     </body>
     <footer>@include('footer')</footer>
