@@ -9,6 +9,8 @@
     <header>
 		<div class="wrapper">
 			<div class="logo"> <img src="{{ asset('photos/logo-uct.png') }}"></div>
+
+			
 			@if(auth()->check())		
 				<nav>
 					<a href="<?php echo url("#") ?>">Bienvenido <b> {{auth()->user()-> name}} </b></a>

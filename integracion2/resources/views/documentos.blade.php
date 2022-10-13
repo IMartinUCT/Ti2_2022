@@ -13,7 +13,7 @@
 
     </head>
 
-    <body>
+    <body >
         @include('header')
         <br>
         <br>

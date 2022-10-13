@@ -2,6 +2,11 @@
     display:none;
 }
 
+.dark-theme {
+    color: white;
+    background-color: black;
+}
+
 button.user-menu{
     border: none;
     background: none;
@@ -205,3 +210,7 @@ header nav a:hover {
   }
 }
 
+body {
+    color: black;
+    background-color: white;
+}
