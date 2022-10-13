@@ -15,7 +15,7 @@
     </head>
     <header>@include('header')</header>
     
-    <body >
+    <body>
     <div class="page" style="background: url(photos/30.jpg) no-repeat 50% 50%/cover;">
       <form class="form" action>
         <div class="form__container">
