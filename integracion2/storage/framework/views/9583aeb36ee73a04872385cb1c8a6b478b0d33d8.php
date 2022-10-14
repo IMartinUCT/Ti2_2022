@@ -24,8 +24,6 @@
 					<a href="<?php echo url('/register') ?>">Registro</a>
 				</nav>
 			<?php endif; ?>
-
-
 		</div>
 	</header>
 </html><?php /**PATH C:\xampp\htdocs\integracion2\resources\views/header.blade.php ENDPATH**/ ?>
