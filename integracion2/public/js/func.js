@@ -66,3 +66,19 @@ $(function() {
     $('#download-link').remove();
   });
 });
+
+$(document).ready( function () {
+  $('#tbldata').DataTable( {
+    "language": {
+      "url": "//cdn.datatables.net/plug-ins/1.12.1/i18n/es-ES.json",
+    columnDefs: [
+      {
+          targets: -1,
+          className: 'dt-body-right'
+      }
+    ]
+    
+  }
+  } );
+} );
+
