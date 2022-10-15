@@ -21,6 +21,7 @@
         <div class="form__container">
           <div class="logo"><img class="logo__pic" src="photos/Logo_UCT.webp" width="45"></div>
           <div class="fieldset">
+  
             <div class="field"><input class="input" type="email" placeholder="Correo Electronico" required></div>
             <div class="field"><input class="input" type="text" placeholder="ID Departamento" required></div>
             <div class="field"><input class="input" type="text" placeholder="Nombre Departamento" required></div>

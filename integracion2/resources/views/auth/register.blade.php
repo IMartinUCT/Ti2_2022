@@ -24,6 +24,7 @@
             <div class="field"><input class="input" type="text" placeholder="Nombre" id="name" name="name" required></div>
             <div class="field"><input class="input" type="email" placeholder="Correo Electronico"  id="email" name="email" required></div>
             <div class="field"><input class="input" type="password" placeholder="Contraseña"  id="password" name="password"required></div>
+            <div class="field"><input class="input" type="role_id" placeholder="ID Departamento "  id="role" name="role"required></div>
           </div><button type="submit"class="button1">Registrarse</button>
           <div class="text">Al crear una cuenta, aceptas a nuestros <a class= "botonreg" href="#">Terminos</a> y <a class= "botonreg" href="#">Privacidad de Seguridad</a>.</div>
         </div>
