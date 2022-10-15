@@ -25,7 +25,7 @@
             <div class="field"><input class="input" type="password" placeholder="Contraseña"  id="password" name="password"required></div>
             @error('message')
               <div class="alert alert-danger" role="alert">
-                <h2>El correo ingresado o la contraseña son incorrecta, porfavor intenlo de nuevo.</h2>
+                <h3>El correo ingresado o la contraseña son incorrecta, porfavor intenlo de nuevo.</h3>
               </div>
             @enderror
           </div><button type="submit"class="button1">Ingresar</button>

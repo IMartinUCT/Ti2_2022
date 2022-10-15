@@ -57,13 +57,23 @@ $(function() {
       tableData.push(rowData.join(","));
     });
     data += tableData.join("\n");
-    $(document.body).append('<a id="download-link" download="data.csv" href=' + URL.createObjectURL(new Blob([data], {
+    $(document.body).append('<a id="download-link" download="tabla_datos.csv" href=' + URL.createObjectURL(new Blob([data], {
       type: "text/csv"
     })) + '/>');
-
-
     $('#download-link')[0].click();
     $('#download-link').remove();
+  });
+});
+
+$(document).ready(() =>{
+  $('#exportar').hide();
+  
+  $('#Mostrar').click(function(){
+    $('#exportar').show();
+  });
+
+  $('#Ocultar').click(function(){
+    $('#exportar').hide();
   });
 });
 
@@ -113,7 +123,7 @@ function setCookie(name, value) {
     var expires = "expires=" + d.toUTCString();
     document.cookie = name + "=" + value + ";" + expires + ";path=/";
 }
-=======
+
 $(document).ready( function () {
   $('#tbldata').DataTable( {
     "language": {
