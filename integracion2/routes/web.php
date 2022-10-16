@@ -30,3 +30,4 @@ Route::get("/gastos", function () {
 });
 Route::get('/documentos', 'App\Http\Controllers\GastoController@index');
 Route::get('/', 'App\Http\Controllers\DatoController@index');
+Route::get('/register', 'App\Http\Controllers\RegisterController@index');

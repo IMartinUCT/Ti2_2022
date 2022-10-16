@@ -14,15 +14,6 @@
 
     <body>
         <header>@include('header')</header>
-        <div class="table-wrapper">
-            <select class="form-select" aria-label="Default select example">
-                <option selected>Seleccione la tabla</option>
-                @foreach($table_names as $table)
-                <option value="{{$table}}">{{$table}}</option>
-                @endforeach
-            </select>
-        </div>
-
     </body>
     <footer>@include('footer')</footer>
 </html>
