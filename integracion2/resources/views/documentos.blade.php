@@ -37,31 +37,23 @@
 
             <button type='button' id='Ocultar' class="btn btn-warning"><h4>¿Desea cerrar esta opcion?</h1></button>
         </div>
-        
-        
         <div class="table-wrapper">
-        <table class="fl-table" id = "tbldata">
+        <table class="fl-table" id="tbldata">
         <thead>
             <tr>
-                <th scope="col">Id_Gastos</th>
-                <th scope="col">Vehiculos</th>
-                <th scope="col">Combustible</th>
-                <th scope="col">Sueldo</th>
-                <th scope="col">Capital</th>
-                <th scope="col">Departamento</th>
+            @foreach($gastos[0] as $key=>$value)
+                <th scope="col">{{$key}}</th>
+            @endforeach
             </tr>
         </thead>
         <tbody>
-            @foreach($gastos as $gasto)
+        @foreach($gastos as $gasto)
             <tr>
-                <th scope="row">{{$gasto['id']}}</th>
-                <td>{{$gasto['Vehiculos']}}</td>
-                <td>{{$gasto['Combustible']}}</td>
-                <td>{{$gasto['Sueldo']}}</td>
-                <td>{{$gasto['Capital']}}</td>
-                <td>{{$gasto -> departamentos -> tipo_departamento}}</td>
+                @foreach($gasto as $key=>$value)
+                    <td>{{$value}}</td>
+                @endforeach
             </tr>
-            @endforeach
+        @endforeach
         </tbody>
         </table>
         </div>

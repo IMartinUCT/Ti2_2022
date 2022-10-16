@@ -21,7 +21,7 @@ class CreateGastosTable extends Migration
             $table->integer("Capital");
 
 
-            $table->foreignId("id_departamento")->references("id")
+            $table->foreign("id_departamento")->references("id")
                 ->on("departamentos");
 
         });

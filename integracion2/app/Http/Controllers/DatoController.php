@@ -19,7 +19,7 @@ class DatoController extends Controller
         }
         #falta hacer que tome el valor del nombre de la tabla dinámicamente
         #conectar de alguna forma con el value del 'option value' en el index
-        $xd = $table_names[2];//0 = departamentos / 1 = gastos / 2 = users
+        $xd = $table_names[0];//0 = departamentos / 1 = gastos / 2 = users
         $columnas = DB::getSchemaBuilder()->getColumnListing($xd);
         $filas = DB::table($xd)->get();
         return view('index',compact('columnas','filas','table_names'));
