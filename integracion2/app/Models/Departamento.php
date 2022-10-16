@@ -12,4 +12,7 @@ class Departamento extends Model
     public function gastos(){
         return $this->hasMany(Gasto::class, "id");
     }
+    public function users(){
+        return $this->hasMany(User::class, "id");
+    }
 }
