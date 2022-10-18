@@ -38,6 +38,27 @@ div.box{
     margin-right: 4em;
 }
 
+.menu {
+    display: flex;
+  }
+  
+  .menu button {
+    margin: 10px;
+    cursor: pointer;
+  }
+  
+  .button_active {
+    color: teal;
+  }
+  
+  .content_inside {
+    display: none;
+    padding: 10px;
+  }
+  
+  .content_inside_active {
+    display: block;
+  }
 
 footer{
     background-color: azure;
