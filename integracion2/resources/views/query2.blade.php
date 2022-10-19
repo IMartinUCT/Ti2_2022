@@ -1,3 +1,4 @@
+<div class="table-wrapper">
 <div class='content_inside'>  
 <table class="fl-table" id="tbldata">
 <thead>
@@ -15,4 +16,5 @@
         @endforeach
     </tbody>
     </table>
+</div>
 </div>
