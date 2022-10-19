@@ -1,4 +1,4 @@
-<div class='content_inside content_inside_active'>      
+<div class='content_inside'>      
 <table class="fl-table" id="tbldata">
     <thead>
         <tr>

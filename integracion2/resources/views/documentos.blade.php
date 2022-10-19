@@ -13,7 +13,6 @@
         <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
         <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <script src="{{ URL::asset('js/func.js') }}"></script>
     </head>
 
     <body>
@@ -22,10 +21,17 @@
         <br>
         <br>
         <div>
-            <button type='button' id='Mostrar' class="btn btn-primary "><h4>¿Desea exportar su tabla?</h1></button>
+            <h1 class='display-2 text-center' >Genere su consulta</h1>
+        </div>
+        <div class="menu">
+            <button onclick=Ocultar() class="button_active btn btn-outline-primary btn-lg" type="button">Gastos Totales</button>
+            <button onclick=Ocultar() class="btn btn-outline-primary btn-lg" type="button">Gastos de Vehiculos</button>
+            <button onclick=Ocultar() class="btn btn-outline-primary btn-lg" type="button">Gastos Funcionarios</button>
+        </div>
+        <div>
+            <button  type='button' id='Mostrar' class="btn btn-primary btn-sm"><h4>¿Desea exportar su tabla?</h1></button>
         </div>
         <div class = "containerboton" id='exportar'>
-
             <br>
             <a onclick="exportarAexcel('tbldata')" class="btn btn-info btn-lg" >
             <span class="glyphicon glyphicon-export"></span>EXCEL
@@ -36,13 +42,9 @@
             <br>
             <br>
 
-            <button type='button' id='Ocultar' class="btn btn-warning"><h4>¿Desea cerrar esta opcion?</h1></button>
+            <button type='button' id='Ocultar' class="btn btn-warning btn-sm"><h4>¿Desea cerrar esta opcion?</h1></button>
         </div>
-        <div class="menu">
-            <button onclick=Ocultar() class="button_active">Query 1</button>
-            <button onclick=Ocultar()>Query 2</button>
-            <button onclick=Ocultar()>Query 3</button>
-        </div>
+    
         <div class="table-wrapper">
         @include('tabla')
         @include('query1')

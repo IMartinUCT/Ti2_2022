@@ -14,15 +14,6 @@
 
     <body>
         <header><?php echo $__env->make('header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?></header>
-        <div class="table-wrapper">
-            <select class="form-select" aria-label="Default select example">
-                <option selected>Seleccione la tabla</option>
-                <?php $__currentLoopData = $table_names; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $table): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <option value="<?php echo e($table); ?>"><?php echo e($table); ?></option>
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-            </select>
-        </div>
-
     </body>
     <footer><?php echo $__env->make('footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?></footer>
 </html>

@@ -1,6 +1,5 @@
-<div class="table-wrapper">
-<div class='content_inside'>    
-<table class="fl-table" id="tbldata">   
+<div class='content_inside '>    
+<table class="fl-table" id="tbldata1">   
 <thead>
         @foreach($query1[0] as $key=>$value)
             <th scope="col">{{$key}}</th>
@@ -16,5 +15,4 @@
         @endforeach
     </tbody>
     </table>    
-</div>
 </div>

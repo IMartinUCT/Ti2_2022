@@ -92,6 +92,36 @@ $(document).ready( function () {
   } );
 } );
 
+$(document).ready( function () {
+  $('#tbldata1').DataTable( {
+    "language": {
+      "url": "//cdn.datatables.net/plug-ins/1.12.1/i18n/es-ES.json",
+    columnDefs: [
+      {
+          targets: -1,
+          className: 'dt-body-right'
+      }
+    ]
+    
+  }
+  } );
+} );
+
+$(document).ready( function () {
+  $('#tbldata2').DataTable( {
+    "language": {
+      "url": "//cdn.datatables.net/plug-ins/1.12.1/i18n/es-ES.json",
+    columnDefs: [
+      {
+          targets: -1,
+          className: 'dt-body-right'
+      }
+    ]
+    
+  }
+  } );
+} );
+
 var toggle_icon = document.getElementById('theme-toggle');
 var body = document.getElementsByTagName('body')[0];
 var sun_class = 'icon-sun';
@@ -124,20 +154,6 @@ function setCookie(name, value) {
     document.cookie = name + "=" + value + ";" + expires + ";path=/";
 }
 
-$(document).ready( function () {
-  $('#tbldata').DataTable( {
-    "language": {
-      "url": "//cdn.datatables.net/plug-ins/1.12.1/i18n/es-ES.json",
-    columnDefs: [
-      {
-          targets: -1,
-          className: 'dt-body-right'
-      }
-    ]
-    
-  }
-  } );
-} );
 
 
 
