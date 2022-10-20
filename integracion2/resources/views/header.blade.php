@@ -15,11 +15,11 @@
 		<img src="{{ asset('photos/logo-uct.png') }}" style = "width: auto; padding-top: 1.3em; float:left; margin-left:3em; margin-bottom:1.5em;">
 		<div class="wrapper">
 			@if(auth()->check())		
-				<nav>
+				<nav>	
 					<a href="<?php echo url("#") ?>">Bienvenido <b> {{auth()->user()-> name}} </b></a>
 					<a href="<?php echo url('/') ?>">Inicio</a>
 					<a href="<?php echo url('/documentos') ?>">Documentos</a>
-					<a href="{{route('login.destroy') }}" class="p-3 mb-2 bg-danger text-white">Desconectarse</a>
+					<a href="{{route('login.destroy') }}" class="desconectar" >Desconectarse</a>
 
 				</nav>
 			@else			

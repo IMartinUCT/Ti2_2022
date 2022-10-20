@@ -15,23 +15,25 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     </head>
 
-    <body>
+    <body class= "consultas1">
         @include('header')
         <br>
-        
         <div>
-            <h1 class='display-2 text-center' >Genere su consulta</h1>
+            <div>
+                <h1 class='display-2 text-center' >Genere su consulta</h1>
+            </div>
+            <div class="menu">
+                <button onclick=Ocultar(),Exportar() class="button_active btn btn-outline-primary btn-lg" type="button">Gastos Totales</button>
+                <button onclick=Ocultar(),Exportar2() class="btn btn-outline-primary btn-lg" type="button">Gastos de Vehiculos</button>
+                <button onclick=Ocultar(),Exportar3() class="btn btn-outline-primary btn-lg" type="button">Gastos Funcionarios</button>
+            </div>
+            <div class="table-wrapper">
+            @include('tabla')
+            @include('query1')
+            @include('query2')
+            </div>
         </div>
-        <div class="menu">
-            <button onclick=Ocultar(),Exportar() class="button_active btn btn-outline-primary btn-lg" type="button">Gastos Totales</button>
-            <button onclick=Ocultar(),Exportar2() class="btn btn-outline-primary btn-lg" type="button">Gastos de Vehiculos</button>
-            <button onclick=Ocultar(),Exportar3() class="btn btn-outline-primary btn-lg" type="button">Gastos Funcionarios</button>
-        </div>
-        <div class="table-wrapper">
-        @include('tabla')
-        @include('query1')
-        @include('query2')
-        </div>
+        
 
     </div>
 
