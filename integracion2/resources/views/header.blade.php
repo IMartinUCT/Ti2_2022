@@ -12,7 +12,7 @@
 	
     </head>
     <header>
-		<img src="{{ asset('photos/logo-uct.png') }}">
+		<img src="{{ asset('photos/logo-uct.png') }}" style = "width: auto; padding-top: 1.3em; float:left; margin-left:3em; margin-bottom:1.5em;">
 		<div class="wrapper">
 			@if(auth()->check())		
 				<nav>

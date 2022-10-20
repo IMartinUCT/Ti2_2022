@@ -12,9 +12,15 @@
 
     </head>
 
-    <body>
+    <body>  
         <header>@include('header')</header>
+        <div class="imagen1"></div>
+        <div class="texto1">
+            <h1 style="font-size:50px">Generador de reportes</h1>
+            <p>Desde 2022 facilitando tu vida.</p>
+        </div>
     </body>
+    
     
     <footer>@include('footer')</footer>
 </html>
