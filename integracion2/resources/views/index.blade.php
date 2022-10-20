@@ -15,5 +15,6 @@
     <body>
         <header>@include('header')</header>
     </body>
+    
     <footer>@include('footer')</footer>
 </html>

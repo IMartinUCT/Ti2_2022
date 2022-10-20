@@ -23,6 +23,14 @@ button.user-menu{
     height: 200%;
     width: 100%;
 }
+
+img {
+  width: auto;
+  padding-top: 1.3em;
+  float:left;
+  margin-left:3em;
+  margin-bottom:1.5em;
+}
 .card-body{
     border: green;
     background: rgb(207, 205, 205);

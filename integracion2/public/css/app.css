@@ -12,6 +12,8 @@ output, ruby, section, summary, time, mark, audio, video {
   vertical-align: baseline;
   text-decoration:none;
 }
+
+
 ::-webkit-scrollbar {
   display: none;
 }
