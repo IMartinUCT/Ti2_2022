@@ -10,60 +10,83 @@ $(function() {
 
 
 
+
+
 // Language: javascript
-function exportarAexcel(tableID, filename = ''){
-  
+function downloadCSV(csv, filename) {
+  var csvFile;
   var downloadLink;
-  var dataType = 'application/vnd.ms-excel';
-  var tableSelect = document.getElementById(tableID);
-  var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
-  
-  // Especial chars handling y nombre de la tabla
-  filename = filename?filename+'.xls':'tabla_datos.xls';
-  
-  // Crear link de descarga
+
+  // CSV file
+  csvFile = new Blob([csv], {type: "text/csv"});
+
+  // Download link
   downloadLink = document.createElement("a");
-  
+
+  // File name
+  downloadLink.download = filename;
+
+  // Create a link to the file
+  downloadLink.href = window.URL.createObjectURL(csvFile);
+
+  // Hide download link
+  downloadLink.style.display = "none";
+
+  // Add the link to DOM
   document.body.appendChild(downloadLink);
+
+  // Click download link
+  downloadLink.click();
+}
+
+function CSV1(filename) {
+  var csv = [];
+  var rows = document.querySelectorAll("#tbldata tr");
   
-  if(navigator.msSaveOrOpenBlob){
-      var blob = new Blob(['\ufeff', tableHTML], {
-          type: dataType
-      });
-      navigator.msSaveOrOpenBlob( blob, filename);
-  }else{
-      // Crear un link para descargar
-      downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
-  
-      // Setear el nombre del archivo
-      downloadLink.download = filename;
+  for (var i = 0; i < rows.length; i++) {
+      var row = [], cols = rows[i].querySelectorAll("td, th");
       
-      // Hacer el trigger
-      downloadLink.click();
-}
-}
+      for (var j = 0; j < cols.length; j++) 
+          row.push(cols[j].innerText);
+      
+      csv.push(row.join(","));        
+  }
 
+  // Download CSV file
+  downloadCSV(csv.join("\n"), filename);
+}
+function CSV2(filename) {
+  var csv = [];
+  var rows = document.querySelectorAll("#tbldata1 tr");
+  
+  for (var i = 0; i < rows.length; i++) {
+      var row = [], cols = rows[i].querySelectorAll("td, th");
+      
+      for (var j = 0; j < cols.length; j++) 
+          row.push(cols[j].innerText);
+      
+      csv.push(row.join(","));        
+  }
 
-$(function() {
-  $("#xx").on('click', function() {
-    var data = "";
-    var tableData = [];
-    var rows = $("table tr");
-    rows.each(function(index, row) {
-      var rowData = [];
-      $(row).find("th, td").each(function(index, column) {
-        rowData.push(column.innerText);
-      });
-      tableData.push(rowData.join(","));
-    });
-    data += tableData.join("\n");
-    $(document.body).append('<a id="download-link" download="tabla_datos.csv" href=' + URL.createObjectURL(new Blob([data], {
-      type: "text/csv"
-    })) + '/>');
-    $('#download-link')[0].click();
-    $('#download-link').remove();
-  });
-});
+  // Download CSV file
+  downloadCSV(csv.join("\n"), filename);
+}
+function CSV3(filename) {
+  var csv = [];
+  var rows = document.querySelectorAll("#tbldata2 tr");
+  
+  for (var i = 0; i < rows.length; i++) {
+      var row = [], cols = rows[i].querySelectorAll("td, th");
+      
+      for (var j = 0; j < cols.length; j++) 
+          row.push(cols[j].innerText);
+      
+      csv.push(row.join(","));        
+  }
+
+  // Download CSV file
+  downloadCSV(csv.join("\n"), filename);
+}
 
 $(document).ready(() =>{
   $('#exportar').hide();
@@ -73,7 +96,7 @@ $(document).ready(() =>{
   });
 
   $('#Ocultar').click(function(){
-    $('#exportar').hide();
+    $('#ocultar').hide();
   });
 });
 
@@ -174,4 +197,94 @@ function Ocultar(){
       content_inside[i].classList.add('content_inside_active');  
     });
   });
+}
+
+function Exportar() {
+  document.getElementById('exportar1').style.display = "block";
+  document.getElementById('exportar2').style.display = "none";
+  document.getElementById('exportar3').style.display = "none";
+  document.getElementById('Mostrar2').style.display = "none";
+  document.getElementById('Mostrar3').style.display = "none";
+}
+function Exportar2() {
+  document.getElementById('exportar1').style.display = "none";
+  document.getElementById('exportar2').style.display = "block";
+  document.getElementById('exportar3').style.display = "none";
+  document.getElementById('Mostrar').style.display = "none";
+  document.getElementById('Mostrar3').style.display = "none";
+}
+function Exportar3() {
+  document.getElementById('exportar1').style.display = "none";
+  document.getElementById('exportar2').style.display = "none";
+  document.getElementById('exportar3').style.display = "block";
+  document.getElementById('Mostrar').style.display = "none";
+  document.getElementById('Mostrar2').style.display = "none";
+  
+}
+function hacerocultacion() {
+
+  var btn = document.getElementById("boton");
+
+  if (btn.value == "Exportar") {
+      btn.value = "Cerrar";
+      btn.innerHTML = "Cerrar";
+  }
+  else {
+      btn.value = "Exportar";
+      btn.innerHTML = "Exportar";
+  }
+
+}
+function hacerocultacion2() {
+
+  var btn = document.getElementById("boton2");
+
+  if (btn.value == "Exportar") {
+      btn.value = "Cerrar";
+      btn.innerHTML = "Cerrar";
+  }
+  else {
+      btn.value = "Exportar";
+      btn.innerHTML = "Exportar";
+  }
+
+}
+function hacerocultacion3() {
+
+  var btn = document.getElementById("boton3");
+
+  if (btn.value == "Exportar") {
+      btn.value = "Cerrar";
+      btn.innerHTML = "Cerrar";
+  }
+  else {
+      btn.value = "Exportar";
+      btn.innerHTML = "Exportar";
+  }
+
+}
+
+function OcultarMostrar() {
+  var x = document.getElementById("Mostrar");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+function OcultarMostrar2() {
+  var x = document.getElementById("Mostrar2");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+function OcultarMostrar3() {
+  var x = document.getElementById("Mostrar3");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
 }
