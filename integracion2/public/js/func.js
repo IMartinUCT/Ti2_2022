@@ -177,8 +177,103 @@ function setCookie(name, value) {
     document.cookie = name + "=" + value + ";" + expires + ";path=/";
 }
 
+function PDF1() {
+    var doc = new jsPDF('p', 'pt');
+    var res = doc.autoTableHtmlToJson(document.getElementById("tbldata"));
+    doc.autoTable(res.columns, res.data);
+    doc.save("Query1.pdf");
+}
+function PDF2() {
+  var doc = new jsPDF('p', 'pt');
+  var res = doc.autoTableHtmlToJson(document.getElementById("tbldata1"));
+  doc.autoTable(res.columns, res.data);
+  doc.save("Query2.pdf");
+}
+function PDF3() {
+  var doc = new jsPDF('p', 'pt');
+  var res = doc.autoTableHtmlToJson(document.getElementById("tbldata2"));
+  doc.autoTable(res.columns, res.data);
+  doc.save("Query3.pdf");
+}
 
 
+
+
+function XML1() {
+  var table = document.getElementById("tbldata");
+  var xml = new XMLSerializer().serializeToString(table);
+  var pom = document.createElement('a');
+  pom.setAttribute('href', 'data:text/xml;charset=utf-8,' + encodeURIComponent(xml));
+  pom.setAttribute('download', 'Query1.xml');
+  pom.click();
+}
+function XML2() {
+  var table = document.getElementById("tbldata1");
+  var xml = new XMLSerializer().serializeToString(table);
+  var pom = document.createElement('a');
+  pom.setAttribute('href', 'data:text/xml;charset=utf-8,' + encodeURIComponent(xml));
+  pom.setAttribute('download', 'Query2.xml');
+  pom.click();
+}
+function XML3() {
+  var table = document.getElementById("tbldata2");
+  var xml = new XMLSerializer().serializeToString(table);
+  var pom = document.createElement('a');
+  pom.setAttribute('href', 'data:text/xml;charset=utf-8,' + encodeURIComponent(xml));
+  pom.setAttribute('download', 'Query3.xml');
+  pom.click();
+}
+function exportToJson() {
+  var table = document.getElementById('tbldata');
+  var data = [];
+  for (var i = 1; i < table.rows.length; i++) {
+      for (var j = 0; j < table.rows[i].cells.length; j++) {
+          data.push(table.rows[i].cells[j].innerHTML);
+      }
+  }
+  var jsonData = JSON.stringify(data);
+  var fileName = "Query1.json";
+  var a = document.createElement('a');
+  a.href = 'data:attachment/json,' + jsonData;
+  a.target = '_blank';
+  a.download = fileName;
+  document.body.appendChild(a);
+  a.click();
+}
+function exportToJson2() {
+  var table = document.getElementById('tbldata1');
+  var data = [];
+  for (var i = 1; i < table.rows.length; i++) {
+      for (var j = 0; j < table.rows[i].cells.length; j++) {
+          data.push(table.rows[i].cells[j].innerHTML);
+      }
+  }
+  var jsonData = JSON.stringify(data);
+  var fileName = "Query2.json";
+  var a = document.createElement('a');
+  a.href = 'data:attachment/json,' + jsonData;
+  a.target = '_blank';
+  a.download = fileName;
+  document.body.appendChild(a);
+  a.click();
+}
+function exportToJson3() {
+  var table = document.getElementById('tbldata2');
+  var data = [];
+  for (var i = 1; i < table.rows.length; i++) {
+      for (var j = 0; j < table.rows[i].cells.length; j++) {
+          data.push(table.rows[i].cells[j].innerHTML);
+      }
+  }
+  var jsonData = JSON.stringify(data);
+  var fileName = "Query3.json";
+  var a = document.createElement('a');
+  a.href = 'data:attachment/json,' + jsonData;
+  a.target = '_blank';
+  a.download = fileName;
+  document.body.appendChild(a);
+  a.click();
+}
 
 function Ocultar(){
 
@@ -221,6 +316,13 @@ function Exportar3() {
   document.getElementById('Mostrar2').style.display = "none";
   
 }
+
+function exporttoexcel() {
+  var htmltable = document.getElementById('tbldata');
+  var html = htmltable.outerHTML;
+  window.open('data:application/vnd.ms-excel,' + encodeURIComponent(html));
+}
+
 function hacerocultacion() {
 
   var btn = document.getElementById("boton");

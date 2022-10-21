@@ -6,7 +6,9 @@
 <div id='Mostrar2' style = "display:none;">
     <br>
     <button onclick="CSV2('Query2.csv')" class="button_active btn btn-outline-primary btn-lg">CSV</button>
-
+    <button onclick="exportToJson2()" class="button_active btn btn-outline-primary btn-lg">JSON</button>
+    <button onclick="XML2()" class="button_active btn btn-outline-primary btn-lg">XML</button>
+    <button onclick="PDF2()" class="button_active btn btn-outline-primary btn-lg">PDF</button>
 </div>
 <br>
 <br>
