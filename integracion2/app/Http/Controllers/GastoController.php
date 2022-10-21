@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Gasto;
 use App\Models\Departamentos;
 use Illuminate\Support\Facades\Auth;
-use DB;
+use Illuminate\Support\Facades\DB;
 
 class GastoController extends Controller
 {
@@ -15,10 +15,11 @@ class GastoController extends Controller
         if (Auth::user()) {
             $user = Auth::user();
             $id_depa = $user->id_departamento;
-            $gastos = DB::Select("SELECT * FROM gastos WHERE id_departamento = '{$id_depa}'");
-            $query1 = DB::Select("SELECT id, Vehiculos, Combustible FROM gastos WHERE id_departamento = '{$id_depa}'");
-            $query2 = DB::Select("SELECT id, Sueldo, Capital FROM gastos WHERE id_departamento = '{$id_depa}'");
-            return view('documentos',compact('gastos', 'query1', 'query2'));
+            $columnas_gastos = DB::getSchemaBuilder()->getColumnListing('gastos');
+            $filas_gastos = DB::table('gastos')->where('id_departamento',$id_depa)->get();
+            $query1 = DB::table('gastos')->select('id','Vehiculos','Combustible')->where('id_departamento',$id_depa)->get();
+            $query2 = DB::table('gastos')->select('id','Sueldo','Capital')->where('id_departamento',$id_depa)->get();
+            return view('documentos',compact('columnas_gastos', 'filas_gastos', 'query1', 'query2'));
             
         }else{
             return view('index');

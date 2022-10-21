@@ -10,6 +10,7 @@
 </div>
 <br>
 <br>
+
 <table class="fl-table" id="tbldata1">   
     <thead>
         <tr>
@@ -21,8 +22,8 @@
     <tbody>
     @foreach($query1 as $row)
         <tr>
-            @foreach($row as $key => $val)
-                <td>{{$val}}</td>
+            @foreach($row as $data)
+                <td>{{$data}}</td>
             @endforeach
         </tr>
     @endforeach

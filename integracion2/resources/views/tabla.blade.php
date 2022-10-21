@@ -13,16 +13,16 @@
 <table class="fl-table" id="tbldata">
     <thead>
         <tr>
-        @foreach($gastos[0] as $key=>$value)
-            <th scope="col">{{$key}}</th>
+        @foreach($columnas_gastos as $colum)
+            <th scope="col">{{$colum}}</th>
         @endforeach
         </tr>
     </thead>
     <tbody>
-    @foreach($gastos as $gasto)
+    @foreach($filas_gastos as $row)
         <tr>
-            @foreach($gasto as $key=>$value)
-                <td>{{$value}}</td>
+            @foreach($row as $data)
+                <td>{{$data}}</td>
             @endforeach
         </tr>
     @endforeach

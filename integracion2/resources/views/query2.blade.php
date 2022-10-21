@@ -22,8 +22,8 @@
     <tbody>
     @foreach($query2 as $row)
         <tr>
-            @foreach($row as $key => $val)
-                <td>{{$val}}</td>
+            @foreach($row as $data)
+                <td>{{$data}}</td>
             @endforeach
         </tr>
     @endforeach
