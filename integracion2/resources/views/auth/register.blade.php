@@ -1,5 +1,5 @@
+<!DOCTYPE html>
 
-<DOCTYPE html> 
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -19,21 +19,21 @@
       <form class="form" method="POST" action="">
         @csrf
         <div class="form__container">
-          <div class="logo"><img class="logo__pic" src="photos/Logo_UCT.webp" width="45"></div>
+          <div class="logo"><img class="logo__pic" alt="logo" src="photos/Logo_UCT.webp" width="45"></div>
           <div class="fieldset">
             <div class="field"><input class="input" type="text" placeholder="Nombre" id="name" name="name" required></div>
             <div class="field"><input class="input" type="email" placeholder="Correo Electronico"  id="email" name="email" required></div>
-            <div class="field"><input class="input" type="password" placeholder="Contraseña"  id="password" name="password"required></div>
+            <div class="field"><input class="input" type="password" placeholder="Contraseña"  id="password" name="password" required></div>
             <div class="field">
               <br>
-              <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" type="id_departamento" placeholder="ID Departamento" id="id_departamento" name="id_departamento"required>
+              <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" type="id_departamento" \ id="id_departamento" name="id_departamento" required>
                 <option value="" disabled selected>Seleccione departamento</option>
                 @foreach($departamentos as $name)
                 <option value="{{$name->id}}">{{$name->tipo_departamento}}</option>
                 @endforeach
               </select>
             </div>
-          </div><button type="submit"class="button1">Registrarse</button>
+          </div><button type="submit" class="button1">Registrarse</button>
           <div class="text">Al crear una cuenta, aceptas a nuestros <a class= "botonreg" href="#">Terminos</a> y <a class= "botonreg" href="#">Privacidad de Seguridad</a>.</div>
         </div>
         <div class="form__footer">Ya tienes cuenta? <a class= "botonreg" href="<?php echo url('/login') ?>">Ingresar</a></div>

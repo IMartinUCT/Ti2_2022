@@ -11,139 +11,331 @@ $(function() {
 
 
 
-
-// Language: javascript
-function downloadCSV(csv, filename) {
-  var csvFile;
-  var downloadLink;
-
-  // CSV file
-  csvFile = new Blob([csv], {type: "text/csv"});
-
-  // Download link
-  downloadLink = document.createElement("a");
-
-  // File name
-  downloadLink.download = filename;
-
-  // Create a link to the file
-  downloadLink.href = window.URL.createObjectURL(csvFile);
-
-  // Hide download link
-  downloadLink.style.display = "none";
-
-  // Add the link to DOM
-  document.body.appendChild(downloadLink);
-
-  // Click download link
-  downloadLink.click();
-}
-
-function CSV1(filename) {
-  var csv = [];
-  var rows = document.querySelectorAll("#tbldata tr");
-  
-  for (var i = 0; i < rows.length; i++) {
-      var row = [], cols = rows[i].querySelectorAll("td, th");
-      
-      for (var j = 0; j < cols.length; j++) 
-          row.push(cols[j].innerText);
-      
-      csv.push(row.join(","));        
-  }
-
-  // Download CSV file
-  downloadCSV(csv.join("\n"), filename);
-}
-function CSV2(filename) {
-  var csv = [];
-  var rows = document.querySelectorAll("#tbldata1 tr");
-  
-  for (var i = 0; i < rows.length; i++) {
-      var row = [], cols = rows[i].querySelectorAll("td, th");
-      
-      for (var j = 0; j < cols.length; j++) 
-          row.push(cols[j].innerText);
-      
-      csv.push(row.join(","));        
-  }
-
-  // Download CSV file
-  downloadCSV(csv.join("\n"), filename);
-}
-function CSV3(filename) {
-  var csv = [];
-  var rows = document.querySelectorAll("#tbldata2 tr");
-  
-  for (var i = 0; i < rows.length; i++) {
-      var row = [], cols = rows[i].querySelectorAll("td, th");
-      
-      for (var j = 0; j < cols.length; j++) 
-          row.push(cols[j].innerText);
-      
-      csv.push(row.join(","));        
-  }
-
-  // Download CSV file
-  downloadCSV(csv.join("\n"), filename);
-}
-
 $(document).ready(() =>{
-  $('#exportar').hide();
-  
-  $('#Mostrar').click(function(){
-    $('#exportar').show();
-  });
-
   $('#Ocultar').click(function(){
     $('#ocultar').hide();
   });
 });
+var $fileName1 = 'Query1';
+var $fileName2 = 'Query2';
+var $fileName3 = 'Query3';
+$(document).ready( function () {
+  var oTable = $('#tbldata').dataTable({
+               "fixedHeader": true,
+               "colReorder": true,
+               "responsive": true,
+               "sPaginationType": "full_numbers",
+               "bLengthChange": true,
+               "aLengthMenu": [[5, 10, 15, 20, -1], [5, 10, 15, 20, , "All"]],
+               "iDisplayLength": 5,
+               "aaSorting": [1, 'asc'],
+               "dom": 'Blfrtip',
+               buttons: [
+                   'copy',
+                   {                     messageTop: '2022 Choripán con manjar Company, Inc' ,
+
+                    extend: 'csv',
+                    filename: $fileName1
+                    },
+                    {                     messageTop: '2022 Choripán con manjar Company, Inc' ,
+
+                    extend: 'excel',
+                    filename: $fileName1
+                    },
+                    {                     messageTop: '2022 Choripán con manjar Company, Inc' ,
+
+                    extend: 'pdf',
+                    filename: $fileName1
+                    }, 'print',
+                   {                     messageTop: '2022 Choripán con manjar Company, Inc' ,
+
+                       text: 'JSON',
+                       action: function (e, dt, button, config) {
+                           var data = dt.buttons.exportData();
+
+                           $.fn.dataTable.fileSave(
+                               new Blob([JSON.stringify(data)]),
+                               'DatosQuery1.json'
+                           );
+                       }
+                   }
+               ],
+               
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.12.1/i18n/es-ES.json"
+            }, select: {
+                info: true,
+                style: 'multi',
+                selector: 'td'
+             },
+             search: {
+                return: true,
+            },
+               //{ dom: 'Bfrtip', buttons: ['colvis', 'excel', 'print'] }
+               //  "bJQueryUI": true
+               // "sDom": 'l<"H"Rf>t<"F"ip>'
+           });
+  $(document).contextmenu({
+               delegate: ".dataTable td",
+               menu: [
+                   { title: "Filter", cmd: "filter", uiIcon: "ui-icon-volume-off ui-icon-filter" },
+                   { title: "Remove filter", cmd: "nofilter", uiIcon: "ui-icon-volume-off ui-icon-filter" },
+                   { title: "Cut", cmd: "Cut", uiIcon: "ui-icon-volume-off ui-icon-filter" },
+                   { title: "Pest", cmd: "Pest", uiIcon: "ui-icon-volume-off ui-icon-filter" },
+                   { title: "Exclude", cmd: "Exclude", uiIcon: "ui-icon-volume-off ui-icon-filter" }
+               ],
+               select: function (event, ui) {
+                   var coltext = ui.target.text().trim();
+                   var colvindex = ui.target.parent().children().index(ui.target);
+                   var colindex = $('table thead tr th:eq(' + colvindex + ')').data('column-index');
+                   switch (ui.cmd) {
+                       case "filter":
+                           oTable.fnFilter(coltext.trim(), colindex, true);
+                           break;
+                       case "nofilter":
+                           oTable.fnFilter('');
+                           break;
+                       case "Cut":
+
+                           alert('Column index 0 is ' +
+                               (employeeTable.column(0).visible() === true ? 'visible' : 'not visible')
+                           );
+                           break;
+                       case "Exclude":
+                           //
+                           oTable.fnSetColumnVis(columnIndex, false);
+                           //var oSettings = // you can find all sorts of goodies in the Settings
+                           // var col_id = oSettings.colindex;
+                           //alert('Clicked on cell in visible column: ' + col_id);
+                           // index = oTable.dataTable().api().cell($(e.target).closest('td')).index().column;
+                           // alert(index);
+                           //  oTable.fnSetColumnVis(colvindex, false);
+
+                           break;
+                   }
+               },
+               beforeOpen: function (event, ui) {
+                   var $menu = ui.menu,
+                       $target = ui.target,
+                       extraData = ui.extraData;
+                   ui.menu.zIndex(9999);
+               }
+           });
+} );
+$(document).ready( function () {
+    var oTable = $('#tbldata1').dataTable({
+                 "fixedHeader": true,
+                 "colReorder": true,
+                 "responsive": true,
+                 "sPaginationType": "full_numbers",
+                 "bLengthChange": true,
+                 "aLengthMenu": [[5, 10, 15, 20, -1], [5, 10, 15, 20, , "All"]],
+                 "iDisplayLength": 5,
+                 "aaSorting": [1, 'asc'],
+                 "dom": 'Blfrtip',
+                 buttons: [
+                    'copy',
+                    {                     messageTop: '2022 Choripán con manjar Company, Inc' ,
+
+                     extend: 'csv',
+                     filename: $fileName2
+                     },
+                     {                     messageTop: '2022 Choripán con manjar Company, Inc' ,
+
+                     extend: 'excel',
+                     filename: $fileName2
+                     },
+                     {                     messageTop: '2022 Choripán con manjar Company, Inc' ,
+
+                     extend: 'pdf',
+                     filename: $fileName2
+                     }, 'print',
+                    {                     messageTop: '2022 Choripán con manjar Company, Inc' ,
+
+                        text: 'JSON',
+                        action: function (e, dt, button, config) {
+                            var data = dt.buttons.exportData();
+ 
+                            $.fn.dataTable.fileSave(
+                                new Blob([JSON.stringify(data)]),
+                                'DatosQuery2.json'
+                            );
+                        }
+                    }
+                ],
+                 
+                  "language": {
+                      "url": "//cdn.datatables.net/plug-ins/1.12.1/i18n/es-ES.json"
+              }, select: {
+                  info: true,
+                  style: 'multi',
+                  selector: 'td'
+               },
+               search: {
+                  return: true,
+              },
+                 //{ dom: 'Bfrtip', buttons: ['colvis', 'excel', 'print'] }
+                 //  "bJQueryUI": true
+                 // "sDom": 'l<"H"Rf>t<"F"ip>'
+             });
+  $(document).contextmenu({
+               delegate: ".dataTable td",
+               menu: [
+                   { title: "Filter", cmd: "filter", uiIcon: "ui-icon-volume-off ui-icon-filter" },
+                   { title: "Remove filter", cmd: "nofilter", uiIcon: "ui-icon-volume-off ui-icon-filter" },
+                   { title: "Cut", cmd: "Cut", uiIcon: "ui-icon-volume-off ui-icon-filter" },
+                   { title: "Pest", cmd: "Pest", uiIcon: "ui-icon-volume-off ui-icon-filter" },
+                   { title: "Exclude", cmd: "Exclude", uiIcon: "ui-icon-volume-off ui-icon-filter" }
+               ],
+               select: function (event, ui) {
+                   var coltext = ui.target.text().trim();
+                   var colvindex = ui.target.parent().children().index(ui.target);
+                   var colindex = $('table thead tr th:eq(' + colvindex + ')').data('column-index');
+                   switch (ui.cmd) {
+                       case "filter":
+                           oTable.fnFilter(coltext.trim(), colindex, true);
+                           break;
+                       case "nofilter":
+                           oTable.fnFilter('');
+                           break;
+                       case "Cut":
+
+                           alert('Column index 0 is ' +
+                               (employeeTable.column(0).visible() === true ? 'visible' : 'not visible')
+                           );
+                           break;
+                       case "Exclude":
+                           //
+                           oTable.fnSetColumnVis(columnIndex, false);
+                           //var oSettings = // you can find all sorts of goodies in the Settings
+                           // var col_id = oSettings.colindex;
+                           //alert('Clicked on cell in visible column: ' + col_id);
+                           // index = oTable.dataTable().api().cell($(e.target).closest('td')).index().column;
+                           // alert(index);
+                           //  oTable.fnSetColumnVis(colvindex, false);
+
+                           break;
+                   }
+               },
+               beforeOpen: function (event, ui) {
+                   var $menu = ui.menu,
+                       $target = ui.target,
+                       extraData = ui.extraData;
+                   ui.menu.zIndex(9999);
+               }
+           });
+} );
+var filename2 = 'DatosQuery2.json';
 
 $(document).ready( function () {
-  $('#tbldata').DataTable( {
-    "language": {
-      "url": "//cdn.datatables.net/plug-ins/1.12.1/i18n/es-ES.json",
-    columnDefs: [
-      {
-          targets: -1,
-          className: 'dt-body-right'
-      }
-    ]
-    
-  }
-  } );
+    var oTable = $('#tbldata2').dataTable({
+                 "fixedHeader": true,
+                 "colReorder": true,
+                 "responsive": true,
+                 "sPaginationType": "full_numbers",
+                 "bLengthChange": true,
+                 "aLengthMenu": [[5, 10, 15, 20, -1], [5, 10, 15, 20, , "All"]],
+                 "iDisplayLength": 5,
+                 "aaSorting": [1, 'asc'],
+                 "dom": 'Blfrtip',
+                 buttons: [
+                    'copy',
+                    
+                    {
+                     messageTop: '2022 Choripán con manjar Company, Inc' ,
+                     extend: 'csv',
+                     filename: $fileName3
+                     },
+                     {
+                     messageTop: '2022 Choripán con manjar Company, Inc' ,
+                     extend: 'excel',
+                     filename: $fileName3
+                     },
+                     {
+                     messageTop: '2022 Choripán con manjar Company, Inc' ,
+                     extend: 'pdf',
+                     filename: $fileName3
+                     }, 'print',
+                    {
+                        text: 'JSON',
+                        messageTop: '2022 Choripán con manjar Company, Inc' ,
+                        action: function (e, dt, button, config) {
+                            var data = dt.buttons.exportData();
+ 
+                            $.fn.dataTable.fileSave(
+                                new Blob([JSON.stringify(data)]),
+                                'DatosQuery3.json'
+                            );
+                        }
+                    }
+                ],
+                language: {
+                    decimal: ',',
+                    thousands: '.', 
+                    url: "//cdn.datatables.net/plug-ins/1.12.1/i18n/es-ES.json"
+                },
+
+               select: {
+                  info: true,
+                  style: 'multi',
+                  selector: 'td'
+               },
+               search: {
+                  return: true,
+              },
+                 //{ dom: 'Bfrtip', buttons: ['colvis', 'excel', 'print'] }
+                 //  "bJQueryUI": true
+                 // "sDom": 'l<"H"Rf>t<"F"ip>'
+             });
+             
+  $(document).contextmenu({
+               delegate: ".dataTable td",
+               menu: [
+                   { title: "Filter", cmd: "filter", uiIcon: "ui-icon-volume-off ui-icon-filter" },
+                   { title: "Remove filter", cmd: "nofilter", uiIcon: "ui-icon-volume-off ui-icon-filter" },
+                   { title: "Cut", cmd: "Cut", uiIcon: "ui-icon-volume-off ui-icon-filter" },
+                   { title: "Pest", cmd: "Pest", uiIcon: "ui-icon-volume-off ui-icon-filter" },
+                   { title: "Exclude", cmd: "Exclude", uiIcon: "ui-icon-volume-off ui-icon-filter" }
+               ],
+               select: function (event, ui) {
+                   var coltext = ui.target.text().trim();
+                   var colvindex = ui.target.parent().children().index(ui.target);
+                   var colindex = $('table thead tr th:eq(' + colvindex + ')').data('column-index');
+                   switch (ui.cmd) {
+                       case "filter":
+                           oTable.fnFilter(coltext.trim(), colindex, true);
+                           break;
+                       case "nofilter":
+                           oTable.fnFilter('');
+                           break;
+                       case "Cut":
+
+                           alert('Column index 0 is ' +
+                               (employeeTable.column(0).visible() === true ? 'visible' : 'not visible')
+                           );
+                           break;
+                       case "Exclude":
+                           //
+                           oTable.fnSetColumnVis(columnIndex, false);
+                           //var oSettings = // you can find all sorts of goodies in the Settings
+                           // var col_id = oSettings.colindex;
+                           //alert('Clicked on cell in visible column: ' + col_id);
+                           // index = oTable.dataTable().api().cell($(e.target).closest('td')).index().column;
+                           // alert(index);
+                           //  oTable.fnSetColumnVis(colvindex, false);
+
+                           break;
+                   }
+               },
+               beforeOpen: function (event, ui) {
+                   var $menu = ui.menu,
+                       $target = ui.target,
+                       extraData = ui.extraData;
+                   ui.menu.zIndex(9999);
+               }
+           });
 } );
 
-$(document).ready( function () {
-  $('#tbldata1').DataTable( {
-    "language": {
-      "url": "//cdn.datatables.net/plug-ins/1.12.1/i18n/es-ES.json",
-    columnDefs: [
-      {
-          targets: -1,
-          className: 'dt-body-right'
-      }
-    ]
-    
-  }
-  } );
-} );
-
-$(document).ready( function () {
-  $('#tbldata2').DataTable( {
-    "language": {
-      "url": "//cdn.datatables.net/plug-ins/1.12.1/i18n/es-ES.json",
-    columnDefs: [
-      {
-          targets: -1,
-          className: 'dt-body-right'
-      }
-    ]
-    
-  }
-  } );
-} );
 
 var toggle_icon = document.getElementById('theme-toggle');
 var body = document.getElementsByTagName('body')[0];
@@ -177,103 +369,10 @@ function setCookie(name, value) {
     document.cookie = name + "=" + value + ";" + expires + ";path=/";
 }
 
-function PDF1() {
-    var doc = new jsPDF('p', 'pt');
-    var res = doc.autoTableHtmlToJson(document.getElementById("tbldata"));
-    doc.autoTable(res.columns, res.data);
-    doc.save("Query1.pdf");
-}
-function PDF2() {
-  var doc = new jsPDF('p', 'pt');
-  var res = doc.autoTableHtmlToJson(document.getElementById("tbldata1"));
-  doc.autoTable(res.columns, res.data);
-  doc.save("Query2.pdf");
-}
-function PDF3() {
-  var doc = new jsPDF('p', 'pt');
-  var res = doc.autoTableHtmlToJson(document.getElementById("tbldata2"));
-  doc.autoTable(res.columns, res.data);
-  doc.save("Query3.pdf");
-}
 
 
 
 
-function XML1() {
-  var table = document.getElementById("tbldata");
-  var xml = new XMLSerializer().serializeToString(table);
-  var pom = document.createElement('a');
-  pom.setAttribute('href', 'data:text/xml;charset=utf-8,' + encodeURIComponent(xml));
-  pom.setAttribute('download', 'Query1.xml');
-  pom.click();
-}
-function XML2() {
-  var table = document.getElementById("tbldata1");
-  var xml = new XMLSerializer().serializeToString(table);
-  var pom = document.createElement('a');
-  pom.setAttribute('href', 'data:text/xml;charset=utf-8,' + encodeURIComponent(xml));
-  pom.setAttribute('download', 'Query2.xml');
-  pom.click();
-}
-function XML3() {
-  var table = document.getElementById("tbldata2");
-  var xml = new XMLSerializer().serializeToString(table);
-  var pom = document.createElement('a');
-  pom.setAttribute('href', 'data:text/xml;charset=utf-8,' + encodeURIComponent(xml));
-  pom.setAttribute('download', 'Query3.xml');
-  pom.click();
-}
-function exportToJson() {
-  var table = document.getElementById('tbldata');
-  var data = [];
-  for (var i = 1; i < table.rows.length; i++) {
-      for (var j = 0; j < table.rows[i].cells.length; j++) {
-          data.push(table.rows[i].cells[j].innerHTML);
-      }
-  }
-  var jsonData = JSON.stringify(data);
-  var fileName = "Query1.json";
-  var a = document.createElement('a');
-  a.href = 'data:attachment/json,' + jsonData;
-  a.target = '_blank';
-  a.download = fileName;
-  document.body.appendChild(a);
-  a.click();
-}
-function exportToJson2() {
-  var table = document.getElementById('tbldata1');
-  var data = [];
-  for (var i = 1; i < table.rows.length; i++) {
-      for (var j = 0; j < table.rows[i].cells.length; j++) {
-          data.push(table.rows[i].cells[j].innerHTML);
-      }
-  }
-  var jsonData = JSON.stringify(data);
-  var fileName = "Query2.json";
-  var a = document.createElement('a');
-  a.href = 'data:attachment/json,' + jsonData;
-  a.target = '_blank';
-  a.download = fileName;
-  document.body.appendChild(a);
-  a.click();
-}
-function exportToJson3() {
-  var table = document.getElementById('tbldata2');
-  var data = [];
-  for (var i = 1; i < table.rows.length; i++) {
-      for (var j = 0; j < table.rows[i].cells.length; j++) {
-          data.push(table.rows[i].cells[j].innerHTML);
-      }
-  }
-  var jsonData = JSON.stringify(data);
-  var fileName = "Query3.json";
-  var a = document.createElement('a');
-  a.href = 'data:attachment/json,' + jsonData;
-  a.target = '_blank';
-  a.download = fileName;
-  document.body.appendChild(a);
-  a.click();
-}
 
 function Ocultar(){
 
@@ -294,99 +393,5 @@ function Ocultar(){
   });
 }
 
-function Exportar() {
-  document.getElementById('exportar1').style.display = "block";
-  document.getElementById('exportar2').style.display = "none";
-  document.getElementById('exportar3').style.display = "none";
-  document.getElementById('Mostrar2').style.display = "none";
-  document.getElementById('Mostrar3').style.display = "none";
-}
-function Exportar2() {
-  document.getElementById('exportar1').style.display = "none";
-  document.getElementById('exportar2').style.display = "block";
-  document.getElementById('exportar3').style.display = "none";
-  document.getElementById('Mostrar').style.display = "none";
-  document.getElementById('Mostrar3').style.display = "none";
-}
-function Exportar3() {
-  document.getElementById('exportar1').style.display = "none";
-  document.getElementById('exportar2').style.display = "none";
-  document.getElementById('exportar3').style.display = "block";
-  document.getElementById('Mostrar').style.display = "none";
-  document.getElementById('Mostrar2').style.display = "none";
-  
-}
 
-function exporttoexcel() {
-  var htmltable = document.getElementById('tbldata');
-  var html = htmltable.outerHTML;
-  window.open('data:application/vnd.ms-excel,' + encodeURIComponent(html));
-}
 
-function hacerocultacion() {
-
-  var btn = document.getElementById("boton");
-
-  if (btn.value == "Exportar") {
-      btn.value = "Cerrar";
-      btn.innerHTML = "Cerrar";
-  }
-  else {
-      btn.value = "Exportar";
-      btn.innerHTML = "Exportar";
-  }
-
-}
-function hacerocultacion2() {
-
-  var btn = document.getElementById("boton2");
-
-  if (btn.value == "Exportar") {
-      btn.value = "Cerrar";
-      btn.innerHTML = "Cerrar";
-  }
-  else {
-      btn.value = "Exportar";
-      btn.innerHTML = "Exportar";
-  }
-
-}
-function hacerocultacion3() {
-
-  var btn = document.getElementById("boton3");
-
-  if (btn.value == "Exportar") {
-      btn.value = "Cerrar";
-      btn.innerHTML = "Cerrar";
-  }
-  else {
-      btn.value = "Exportar";
-      btn.innerHTML = "Exportar";
-  }
-
-}
-
-function OcultarMostrar() {
-  var x = document.getElementById("Mostrar");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
-function OcultarMostrar2() {
-  var x = document.getElementById("Mostrar2");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
-function OcultarMostrar3() {
-  var x = document.getElementById("Mostrar3");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
