@@ -28,6 +28,6 @@ Route::get('/history', function () {
 Route::get("/gastos", function () { 
     return view('gastos');
 });
-Route::get('/documentos', 'App\Http\Controllers\GastoController@index');
+Route::get('/documentos', 'App\Http\Controllers\GastoController@index', 'App\Http\Controllers\DynamicQuery');
 Route::get('/', 'App\Http\Controllers\DatoController@index');
 Route::get('/register', 'App\Http\Controllers\RegisterController@index');
