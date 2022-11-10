@@ -17,7 +17,7 @@
         <div class="imagen1"></div>
         <div class="texto1">
             <h1 style="font-size:50px">Generador de reportes</h1>
-            <p>Desde 2022 facilitando tu vida.</p>
+            <h3>Desde 2022 facilitando tu vida.</h3>
         </div>
     </body>
     

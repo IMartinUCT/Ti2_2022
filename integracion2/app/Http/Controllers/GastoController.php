@@ -17,10 +17,7 @@ class GastoController extends Controller
             $id_depa = $user->id_departamento;
             $columnas_gastos = DB::getSchemaBuilder()->getColumnListing('gastos');
             $filas_gastos = DB::table('gastos')->where('id_departamento',$id_depa)->get();
-            $query1 = DB::table('gastos')->select('id','Vehiculos','Combustible')->where('id_departamento',$id_depa)->get();
-            $query2 = DB::table('gastos')->select('id','Sueldo','Capital')->where('id_departamento',$id_depa)->get();
-            return view('documentos',compact('columnas_gastos', 'filas_gastos', 'query1', 'query2'));
-            
+            return view('documentos',compact('columnas_gastos', 'filas_gastos'));            
         }else{
             return view('index');
         }
