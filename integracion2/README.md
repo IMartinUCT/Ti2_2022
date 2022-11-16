@@ -1,64 +1,119 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# Generador de reportes
+UCT 2022
 
-## About Laravel
+A brief description of what this project does and who it's for
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Que buscamos con el proyecto
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Porder facilitar el uso de un generador de reportes a los usuarios
+- Editar los reportes
+- Guardar los reportes en distintos formatos (excel, json, pdf)
+- Multiples plataformas donde se podra usar la aplicacion!
+- Personalizacion de los reportes dinamicos
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
+## Fase de instalacion
+Para instalar este proyecto se tendra que usar:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+```bash
+  - Microsoft SQL Server.
+  - Laravel.
+  - PHP 7.
+  - Un IDE de preferencia.
+```
+Primero que todo se tendran que descargar los programas referenciados, luego de realizar la instalacion,
+tendremos que clonar el proyecto, esto se puede hacer mediante SSH, GitHub Desktop o directamente desde la pagina.
 
-### Premium Partners
+al clonar la aplicacion, tendremos que vincular la base de datos deseada a nuestro SQL Server, luego, iniciar el servidor y agregar los plugins de sql server a las extenciones de PHP.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Correr la aplicacion localmente
 
-## Code of Conduct
+Clone the project
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+  git clone https://github.com/IMartinUCT/Ti2_2022.git
+```
 
-## Security Vulnerabilities
+Vamos al repositorio y lo iniciamos con PHP
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+  cd Ti2_2022-Development\Ti2_2022-Development\integracion2
+  
+```
 
-## License
+Iniciamos el servidor local
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+  php artisan serve
+```
+
+
+
+
+## Uso y ejemplos de uso
+
+```javascript
+function Ocultar(){
+
+  let button = document.querySelectorAll('.menu button');
+  let content_inside = document.querySelectorAll('.content_inside');
+
+  Array.from(button).forEach(function(buttonArray, i) {
+  buttonArray.addEventListener('click', function() {
+
+      Array.from(button).forEach(buttonAll => buttonAll.classList.remove('button_active'));
+      
+      Array.from(content_inside).forEach(content_insideAll => content_insideAll.classList.remove('content_inside_active'));
+      
+      button[i].classList.add('button_active'); 
+      
+      content_inside[i].classList.add('content_inside_active');  
+    });
+  });
+}
+```
+dentro de esta funcion tenemos definido todo el mecanismo para poder reemplazar las tablas dependiendo de la tabla que quiera ver el usuario
+
+
+
+## FAQ
+
+#### Puedo usar mis propias bases de datos?
+
+Claro que si! Cualquier usuario podra tener su propia base de datos
+
+#### Hay riesgos de seguridad con las contraseñas?
+
+No!, al usar bcrypt, algoritmo diseñado específicamente para hash de contraseñas. MD5 y SHA1 son algoritmos de hash de propósito general. Por diseño, además, bcrypt permite agregar un salt al proceso de generación del hash, lo que, de entrada, lo hace inmune a ataques de diccionario.
+
+
+## Screenshots
+Login
+![Login](https://cdn.upload.systems/uploads/oyjZ5x5J.png)
+Registro
+![Registro](https://cdn.upload.systems/uploads/gFCEnADz.png)
+Documentos
+![documentos](https://cdn.upload.systems/uploads/fbXgFjMy.png)
+
+
+
+
+## Contribuciones
+
+Todo apoyo es agradecido, para poder hacer aportes al proyecto, solamente haz tus cambios deseados y nosotros veremos como queda!
+
+
+Favor seguir las reglas de conducta del producto.
+
+
+## 🔗 Links de los desarrolladores
+Rigo (https://github.com/Cinnamotion)
+Nicolas (https://github.com/Nipicoco)
+Rodrigo (https://github.com/RodrigoAlt11)
+Pato (https://github.com/patoskixd)
