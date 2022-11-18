@@ -13,7 +13,7 @@
         <script type="text/javascript" src="https://cdn.datatables.net/v/dt/b-2.2.3/b-html5-2.2.3/sl-1.4.0/datatables.min.js" defer></script>
     </head>
 
-    <body class= "consultas1">
+    <body class= "consultas1" style="background:url(https://wallpaperset.com/w/full/8/8/0/462749.jpg);background-repeat: no-repeat; ">
         @include('header')
         <br>
         <div>
