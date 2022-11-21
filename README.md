@@ -55,7 +55,7 @@ Iniciamos el servidor local
 
 ```bash
   php artisan migrate
-  php artisan serve
+  php artisan serv
 ```
 
 
@@ -85,7 +85,29 @@ function Ocultar(){
 ```
 dentro de esta funcion tenemos definido todo el mecanismo para poder reemplazar las tablas dependiendo de la tabla que quiera ver el usuario
 
+```php 
+class GastoController extends Controller
+{
+    public function index() {
 
+        if (Auth::user()) {
+            $user = Auth::user();
+            $id_depa = $user->id_departamento;
+            $columnas_gastos = DB::getSchemaBuilder()->getColumnListing('gastos');
+            $filas_gastos = DB::table('gastos')->where('id_departamento',$id_depa)->get();
+            return view('documentos',compact('columnas_gastos', 'filas_gastos'));            
+        }else{
+            return view('index');
+        }
+    }
+
+    function list(){
+
+        return Gasto::all();
+    }
+}
+```
+Este codigo es uno de los encargados de realizar peticiones a la DB, y esta retorna los datos solicitados dentro de una vista(View).
 
 ## FAQ
 
