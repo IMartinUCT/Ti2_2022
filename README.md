@@ -8,7 +8,6 @@ A brief description of what this project does and who it's for
 ## Que buscamos con el proyecto
 
 - Porder facilitar el uso de un generador de reportes a los usuarios
-- Editar los reportes
 - Guardar los reportes en distintos formatos (excel, json, pdf)
 - Multiples plataformas donde se podra usar la aplicacion!
 - Personalizacion de los reportes dinamicos
@@ -28,8 +27,7 @@ Para instalar este proyecto se tendra que usar:
 Primero que todo se tendran que descargar los programas referenciados, luego de realizar la instalacion,
 tendremos que clonar el proyecto, esto se puede hacer mediante SSH, GitHub Desktop o directamente desde la pagina.
 
-al clonar la aplicacion, tendremos que vincular la base de datos deseada a nuestro SQL Server, luego, iniciar el servidor y agregar los plugins de sql server a las extenciones de PHP.
-terminado eso, procedemos a crear un nuevo proyecto de laravel, con el comando ```laravel new *nombre-del-proyecto* ```. Este comando nos hace una creación limpia de entorno para trabajar con el framework.
+Terminado eso, procedemos a crear un nuevo proyecto de laravel, con el comando ```laravel new *nombre-del-proyecto* ```. Este comando nos hace una creación limpia de entorno para trabajar con el framework.
 
 Nos dirigimos a la carpeta del proyecto para realizar el primer cambio en el archivo ```.env```, buscaremos dentro del archivo la sección donde se especifica el motor de DB a utilizar, por defecto utiliza ```DB_CONNECTION=mysql```, en el cual cambiaremos ```mysql``` por ```sqlsrv``` que es el parámetro con el cual laravel sabe que debe interpretar las conecciones con la DB. Otro cambio que debemos realizar antes de comenzar a trabajar es el cambio de los puertos que harán de puente de información entre el framework y la DB, por defecto viene con ```DB_PORT=3306``` en el caso de SQL Server se necesita cambiar el puerto ```3306``` por el puerto ```1433```. En los apartados de ```DB_USERNAME``` y ```DB_PASSWORD``` los dejamos en blanco, ya que, trabajamos de manera local, por ende no requerimos de ese parámetro
 
