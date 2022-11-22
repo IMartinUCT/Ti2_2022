@@ -60,20 +60,20 @@ Continuo de esto, creamos las migraciones de nuestra base de datos con el comand
 
 ## Correr la aplicación localmente clonando el repositorio
 
-Clonar el proyecto
+Clonar el proyecto.
 
 ```bash
   git clone https://github.com/IMartinUCT/Ti2_2022.git
 ```
 
-Vamos al repositorio y lo iniciamos con PHP
+Vamos al repositorio y lo iniciamos con PHP.
 
 ```bash
   cd Ti2_2022-Development\Ti2_2022-Development\integracion2
   
 ```
 
-Iniciamos el servidor local
+Iniciamos el servidor local.
 
 ```bash
   php artisan migrate
@@ -104,7 +104,7 @@ function Ocultar(){
   });
 }
 ```
-dentro de esta función tenemos definido todo el mecanismo para poder reemplazar las tablas dependiendo de la tabla que quiera ver el usuario
+dentro de esta función tenemos definido todo el mecanismo para poder reemplazar las tablas dependiendo de la tabla que quiera ver el usuario.
 
 ```php 
 class GastoController extends Controller
@@ -134,7 +134,7 @@ Este código es uno de los encargados de realizar peticiones a la DB, y esta ret
 
 #### Puedo usar mis propias bases de datos?
 
-¡Claro que sí! Cualquier usuario podrá tener su propia base de datos
+¡Claro que sí! Cualquier usuario podrá tener su propia base de datos.
 
 #### Hay riesgos de seguridad con las contraseñas?
 
@@ -154,7 +154,7 @@ Documentos
 
 ## Contribuciones
 
-Todo apoyo es agradecido, para aportar al proyecto; simplemente realiza tus cambios deseados en la aplicación y ¡nosotros veremos cómo queda!
+Todo apoyo es agradecido, para aportar al proyecto; simplemente realiza tus cambios deseados en la aplicación y ¡nosotros veremos cómo queda!.
 
 Favor seguir las reglas de conducta del producto.
 
