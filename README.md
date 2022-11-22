@@ -4,7 +4,9 @@ UCT 2022
 
 ## Que buscamos con el proyecto
 
+- Crear una aplicacion que sea lo mas intuitiva. 
 - Lograr facilitar el uso de un generador de reportes al usuario.
+- Automatizacion del labor de los contadores.
 - Guardar los reportes en distintos formatos (excel, json, pdf).
 - Múltiples plataformas donde se podrá usar la aplicación!.
 - Personalización de los reportes dinámicos.
@@ -24,7 +26,7 @@ Para instalar este proyecto se tendrá que usar:
 
 
 Descagamos SQL Server de su pagina oficial ```https://go.microsoft.com/fwlink/p/?linkid=2216019```, una vez abierto nos saldrán 3 opciones, Básica, Custom, Media, nosotros instalamos la configuración básica aceptamos los términos y condiciones, designaremos la ruta a donde queremos el programa y le daremos a instalar. Una vez finalizada la instalación clickeamos save. 
-Ahora debemos  instalar la interfaz gráfica de su pagina oficial ```https://aka.ms/ssmsfullsetup``` una vez instaldo nos saldrá una ventana la cual contendrá la ruta a donde queremos instalar, y daremos a instalar 
+Ahora debemos  instalar la interfaz gráfica de su pagina oficial ```https://aka.ms/ssmsfullsetup``` una vez instaldo nos saldrá una ventana la cual contendrá la ruta a donde queremos instalar, y daremos a instalar.
 
 ## Xampp y php 7.4
 
