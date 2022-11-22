@@ -20,6 +20,21 @@ Para instalar este proyecto se tendrá que usar:
   - Un IDE de preferencia.
 ```
 
+## SQL Server
+
+
+Descagamos SQL Server de su pagina oficial ```https://go.microsoft.com/fwlink/p/?linkid=2216019```, una vez abierto nos saldrán 3 opciones, Básica, Custom, Media, nosotros instalamos la configuración básica aceptamos los términos y condiciones, designaremos la ruta a donde queremos el programa y le daremos a instalar. Una vez finalizada la instalación clickeamos save. 
+Ahora debemos  instalar la interfaz gráfica de su pagina oficial ```https://aka.ms/ssmsfullsetup``` una vez instaldo nos saldrá una ventana la cual contendrá la ruta a donde queremos instalar, y daremos a instalar 
+
+## Xampp y php 7.4
+
+Descargamos Xampp de su página oficial ```https://www.apachefriends.org/download.html```, una vez abierto nos dara un advertencia, la cual deberemos aceptar posteriormente nos abrirá al instalador apretaremos los botones que diga siguiente, llegará un punto donde nos pedirá la ruta de instalación a la cual nosotros lo dejaremos por defecto y mas adelante nos pedirá seleccionar un idioma a elección y por ultimo le daremos a instalar y comenzará la instalación.
+
+## Composer:
+
+Primero descargaremos Composser de su pagina oficial ```https://getcomposer.org/Composer-Setup.exe```, una vez ejecutado haremos click a instalar para todos los usuarios, se nos abrirá otra ventana y le daremos a siguiente, seleccionamos la ruta de php le daremos click a la casilla que dice agregar el php a la ruta y siguiente, nos preguntará por un proxy lo ignoramos y aprendamos siguiente por último apretamos el botón de instalar y se comenzará la descarga. 
+Abrimos la consola, ingresamos el siguiente comando ```composer global require "laravel/installer=~1.1"``` y empezará la descarga de las dependencias. Comprobaremos la instalación con ```laravel -v```. 
+
 Primero que todo se tendrán que descargar los programas referenciados, luego de realizar la instalación,
 tendremos que clonar el proyecto, esto se puede hacer mediante SSH, GitHub Desktop o directamente desde la página.
 
