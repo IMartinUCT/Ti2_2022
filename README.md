@@ -45,12 +45,14 @@ y empezará la descarga de las dependencias. Comprobaremos la instalación con `
 ![version](https://media.discordapp.net/attachments/1007703019128881246/1044594433401827389/image.png?width=201&height=39) 
 
 ##
+
+
+##  Configuracion del proyecto
+
 Primero que todo se tendrán que descargar los programas referenciados, luego de realizar la instalación,
 tendremos que clonar el proyecto, esto se puede hacer mediante SSH, GitHub Desktop o directamente desde la página.
 
 Terminado eso, procedemos a crear un nuevo proyecto de laravel, con el comando ```laravel new *nombre-del-proyecto* ```. Este comando nos hace una creación limpia de entorno para trabajar con el framework.
-
-##  Configuracion del proyecto
 
 Posteriormente, accedimos a la ruta de las vistas en ```Proyecto/resources/views```, en esta carpeta se encontrarán todos los archivos de extensión ```.blade.php``` los cuales se interpretan como vistas. Luego nos ubicamos en el archivo ```web.php``` el cual encontramos en ```Proyecto/routes/web.php```, este archivo nos servirá para configurar y asignar rutas en el navegador para cada una de las vistas que creemos. Dentro de la misma carpeta resource encontraremos otra carpeta llamada views dónde contendrá todos aquellos archivos php.
 
