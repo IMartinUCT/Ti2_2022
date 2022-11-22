@@ -36,8 +36,9 @@ Primero descargaremos Composser de su pagina oficial ```https://getcomposer.org/
 
 ## Laravel
 
-Abrimos la consola, ingresamos el siguiente comando ```composer global require "laravel/installer=~1.1"``` [](https://media.discordapp.net/attachments/1007703019128881246/1044404521142583428/image.png?width=506&height=74)[](https://media.discordapp.net/attachments/1007703019128881246/1044404521142583428/image.png?width=506&height=74)y empezará la descarga de las dependencias. Comprobaremos la instalación con ```laravel -v```.[](https://media.discordapp.net/attachments/1007703019128881246/1044594433401827389/image.png?width=201&height=39) 
+Abrimos la consola, ingresamos el siguiente comando ```composer global require "laravel/installer=~1.1"``` ![command](https://media.discordapp.net/attachments/1007703019128881246/1044404521142583428/image.png?width=506&height=74)![install](https://media.discordapp.net/attachments/1007703019128881246/1044404521142583428/image.png?width=506&height=74)y empezará la descarga de las dependencias. Comprobaremos la instalación con ```laravel -v```.![version](https://media.discordapp.net/attachments/1007703019128881246/1044594433401827389/image.png?width=201&height=39) 
 
+##
 Primero que todo se tendrán que descargar los programas referenciados, luego de realizar la instalación,
 tendremos que clonar el proyecto, esto se puede hacer mediante SSH, GitHub Desktop o directamente desde la página.
 
